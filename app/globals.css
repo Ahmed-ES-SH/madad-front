@@ -3,25 +3,64 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --main_blue: #007baa;
+  --main_orange: #d29203;
+  --main_red: #a80104;
+  --main_dash: #0f172a;
+  --secend_dash: #1f2937;
+  --secend_text: #94a3b8;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f0f0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.main_link:hover .circle {
+  transition: 0.5s;
+  animation: go_back 0.8s ease-in;
+  -webkit-animation: go_back 0.8s ease-in;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.up-down {
+  animation: moveUpDown 1s ease-in-out infinite;
+}
+
+.img-animate {
+  transform: scaleX(-1);
+  animation: moveUpDown 1s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0); /* الوضع الافتراضي */
+  }
+  50% {
+    transform: translateY(-5px); /* تحريك الصورة إلى أعلى */
+  }
+  75% {
+    transform: translateY(5px); /* تحريك الصورة إلى أسفل */
+  }
+}
+
+@keyframes go_back {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: 80%;
+  }
+
+  80% {
+    left: 50%;
+  }
+
+  0% {
+    left: 4px;
   }
 }
